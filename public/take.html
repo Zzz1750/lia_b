@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store Number</title>
+</head>
+<body>
+  <h1>Store 10-Digit Number</h1>
+  <form id="numberForm">
+    <textarea id="numberInput" rows="4" cols="30" placeholder="Enter a 10-digit number"></textarea>
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="message"></p>
+
+  <script>
+    document.getElementById('numberForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const number = document.getElementById('numberInput').value;
+
+      if (!/^\d{10}$/.test(number)) {
+        document.getElementById('message').textContent = "Please enter a valid 10-digit number.";
+        return;
+      }
+
+      const response = await fetch('/store-number', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ number })
+      });
+
+      const result = await response.json();
+      document.getElementById('message').textContent = result.message;
+    });
+  </script>
+</body>
+</html>
