@@ -1,40 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Store Number</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tales from the Midnight Pen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Gamja+Flower&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Indie+Flower&family=Playwrite+FR+Trad:wght@100..400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        #story_head{
+            font-family: "Delius Swash Caps", serif;
+            color: white;
+        }
+        #from{
+            font-family: "Gamja Flower", cursive;
+            opacity: 0.5;
+            color: white;
+        }
+        #frog{
+            filter: invert(100%);
+            width: 30%;
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.9;
+        }
+        #content_1{
+            margin-top: 200px;
+            opacity: 0.9;
+            padding: 15px;
+        }
+        #ig{
+          filter: invert(100%);
+            position: absolute;
+            width: 5%;
+            opacity: 0.7;
+            left: 90%;
+        }
+
+        .text_container {
+           color: white;
+            position: relative;
+            height: 600px; 
+            overflow: hidden; 
+          }
+          
+          .text_container::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px; 
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgb(7, 7, 7) 100%);
+            pointer-events: none; 
+          }
+          
+          #para {
+            font-family: 'Times New Roman', Times, serif;
+            opacity: 0.8;
+            margin: 0;
+            padding: 0 20px; 
+          }
+          
+          #signup{
+            width: 50%;
+            color: black;
+            background-color: white;
+            border: 0.1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            padding: 10px 15px 10px 15px;
+            position: absolute;
+            top: 140%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+          #loc_fake{
+            color: white;
+            font-size: 13px;  
+            opacity: 0.7; 
+          }
+         
+          #back_button{
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            filter: invert(100%);
+            width: 35px;
+            opacity: 0.9;
+          }
+          .continue_button{
+            color: rgba(255, 255, 255, 0.85);
+            background-color: black;
+            border: 0.1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            padding: 15px 20px 15px 20px;
+          }
+          #apple{
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            width: 80%;
+            transform: translate(-50%,-50%);
+            
+          }
+          .logo_image{
+            filter: invert(100%);
+            width: 20px;
+            position: absolute;
+            top: 48%;
+            left: 10%;
+            transform: translate(-50%,-50%);
+          }
+          #google{
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            width: 80%;
+            transform: translate(-50%,-50%);
+            
+          }
+          #google_image{
+            filter: invert(0%);          
+          }
+          #signup_head{
+            position: absolute;
+            color: white;
+            top: 15%;
+            left: 60%;
+            width: 100%;
+            font-size: 30px;
+            transform: translate(-50%,-50%);
+            font-family: "IBM Plex Sans", serif;
+            font-weight: 400;
+          }
+          .lines{
+            filter: invert(100%);
+            height: 10px;
+            opacity: 0.7;
+            width: 140px;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%,-50%);
+          }
+          #line1{
+            left: 30%;
+          } 
+          #line2{
+            left: 70%;
+          }
+          #email_label{
+            color: white;
+            position: absolute;
+            top:55%;
+            left: 18%;
+            transform: translate(-50%,-50%);
+            font-family: "IBM Plex Sans", serif;
+            font-size: 20px;
+          }
+          #mail{
+            position: absolute;
+            top: 67%;
+            left: 50%;
+            width: 70%;
+            transform: translate(-50%,-50%);
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            font-size: 17px;
+            padding: 15px 20px 15px 20px;
+            color: white;
+          }
+          #with_mail{
+            width: 70%;
+            color: black;
+            background-color: white;
+            border: 0.1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            padding: 15px 20px 15px 20px;
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+     
+          hr{
+            border-color: #6d6d6d;
+          }
+          #almost{
+            position: absolute;
+            color: white;
+            top: 15%;
+            left: 80%;
+            width: 100%;
+            font-size: 30px;
+            transform: translate(-50%,-50%);
+            font-family: "IBM Plex Sans", serif;
+            font-weight: 400;
+          }
+          #phone_label{
+            position: absolute;
+            top: 28%;
+            left: 21%;
+            z-index: 2;
+            transform: translate(-50%,-50%);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+          }
+          #numberInput{
+            position: absolute;
+            top: 38%;
+            left: 50%;
+            width: 70%;
+            transform: translate(-50%,-50%);
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            font-size: 17px;
+            padding: 15px 20px 15px 20px;
+            color: white;
+          }
+          #last_submit{
+            width: 40%;
+            color: black;
+            background-color: white;
+            border: 0.1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            padding: 15px 20px 15px 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+          #back_button2{
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            filter: invert(100%);
+            width: 35px;
+            opacity: 0.9;
+          }
+          #content_2{
+            display: none;
+          }
+          #content3{
+            display: none;
+          }
+    </style>
 </head>
+
 <body>
-  <h1>Store 10-Digit Number</h1>
-  <form id="numberForm">
-    <textarea id="numberInput" rows="4" cols="30" placeholder="Enter a 10-digit number"></textarea>
-    <br><br>
-    <button type="submit">Submit</button>
-  </form>
-  <p id="message"></p>
+    <div id="actual_content1">
+        <hr>
+        <img src="./story_image.png" alt="frog" id="frog">
+        <div id="content_1">
+        <h1 id="story_head">The Shadow on Blackthorn Road</h1>
+        <img src="./instagram.png" alt="ig" id="ig"> 
+        <p id="from"><u>from Toad Series</u></p>
+        <hr>
+        <div class="text_container">
+            <p id="para">
+                <br>
+              Blackthorn Road was infamous in the small, mist-shrouded town of Hollow Creek. Locals whispered about the stretch of road that snaked through the dense, ancient forest. No one dared tread there after dark—not since the disappearances began fifty years ago.
+              <br><br>It was said that a woman named Eleanor Sinclair had vanished on that very road. She was a solitary figure who lived in a grand, decaying mansion deep within the woods. The night she disappeared, a storm had rolled in, the kind that rattled windows and silenced even the bravest of townsfolk. Her carriage was found overturned, her driver dead, but Eleanor was never seen again. Rumors spread that she’d been taken by something unnatural.
+              <br><br>Decades later, Thomas, a skeptic and journalist with a thirst for debunking myths, decided to investigate the legend for an exposé. Armed with a flashlight, a notebook, and a sense of bravado, he ventured onto Blackthorn Road just as the sun dipped below the horizon. The air felt unnaturally cold, and the trees loomed like silent sentinels.
+             <br><br>As Thomas walked, he felt an odd sense of being watched. The shadows seemed to shift when he wasn’t looking, and the sound of rustling leaves seemed to follow him. Dismissing it as his imagination, he pressed on.
+                <br><br>
+             About a mile in, the mist thickened, curling around his legs and muffling the crunch of his boots. That’s when he heard it—a faint whisper, barely audible. “Thomas...”
+            </p>
+          </div>
+          <button id="signup">Continue Reading</button>
+          <div id="chumma_black"></div>
+          
+    </div> 
+ 
+    </div>
+    
+    <div id="content_2">
+        <img src="./back.png" alt="back" id="back_button">
+        <h1 id="signup_head">Get your free account !</h1>
+        <button id="apple" class="continue_button" onclick="display_content3()"><img src="./apple.png" class="logo_image" alt="google_image" draggable="false"> Continue with Apple</button>
+        <button id="google" class="continue_button" onclick="display_content3()"><img src="./search.png" alt="google_image" class="logo_image" id="google_image" draggable="false"> Continue with Google</button>
+        <img src="./line.png" id="line1" alt="" class="lines">
+        <img src="./line.png" id="line2" class="lines" alt="">
+        <p id="email_label">Email <span style="color: #8fbf76;">*</span></p>
+        <input type="text" id="mail">
+        <button id="with_mail" onclick="validateEmail()">Continue with Email</button>
+    </div>
+   
+    <div id="content3">
+      <img src="./back.png" alt="back" id="back_button2">
+      <h1 id="almost">Almost there...</h1>
+      <p id="phone_label">Phone no <span style="color: #8fbf76;">*</span></p>
+      <form id="numberForm">
+      <input id="numberInput" type="tel">
+      <br><br>
+      <button type="submit" id="last_submit">Get OTP</button>
+    </form>
+    <p id="message" style="color: white;"></p>    
+  </div>
 
-  <script>
-    document.getElementById('numberForm').addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const number = document.getElementById('numberInput').value;
+   
+    <script>
+        document.getElementById('signup').addEventListener('click',function(){
+            document.getElementById('actual_content1').style.display = 'none';
+            document.getElementById('content_2').style.display = 'block';
+        })
 
-      if (!/^\d{10}$/.test(number)) {
-        document.getElementById('message').textContent = "Please enter a valid 10-digit number.";
-        return;
-      }
+        document.getElementById('back_button').addEventListener('click',()=>{
+          document.getElementById('content_2').style.display = 'none';
+          document.getElementById('actual_content1').style.display = 'block';
+        })
 
-      const response = await fetch('/store-number', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ number })
+        document.getElementById('back_button2').addEventListener('click',()=>{
+          document.getElementById('content3').style.display = 'none';
+          document.getElementById('content_2').style.display = 'block';
+        })
+
+        function validateEmail() {
+          const email = document.getElementById('mail').value;
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+          if (emailRegex.test(email)) {
+            display_content3();
+          } else {
+            alert("Invalid email address");
+          }
+        }
+        
+        function display_content3(){
+          document.getElementById('content_2').style.display = 'none';
+          document.getElementById('content3').style.display = 'block';
+        }
+    </script>
+
+    <script>
+      document.getElementById('numberForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const number = document.getElementById('numberInput').value;
+  
+        if (!/^\d{10}$/.test(number)) {
+          alert("Please enter a valid 10-digit number.") ;
+          return;
+        }
+  
+        const response = await fetch('/store-number', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ number })
+        });
+  
+        const result = await response.json();
+        document.getElementById('message').textContent = result.message;
       });
-
-      const result = await response.json();
-      document.getElementById('message').textContent = result.message;
-    });
-  </script>
+    </script>
 </body>
 </html>
+<!-- 
+font-family: "Gamja Flower", serif;
+font-family: "Playwrite FR Trad", serif;
+font-family: "Indie Flower", serif; 
+font-family: "Delius Swash Caps", serif;
+
+-->

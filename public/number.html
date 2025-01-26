@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: black;
+            color: white;
+            font-family: "IBM Plex Sans", Arial, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #back_button2 {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            filter: invert(100%);
+            width: 35px;
+            opacity: 0.9;
+        }
+        #almost {
+            text-align: center;
+            font-size: 24px;
+            margin: 25% 0 5%;
+            font-weight: 400;
+        }
+        #phone_label {
+            font-size: 18px;
+            margin: 30px 0;
+            position: relative;
+            right: 25%;
+        }
+        #numberInput {
+            max-width: 400px;
+            padding: 15px;
+            background-color: black;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            font-size: 17px;
+            color: white;
+            position: relative;
+            bottom: 60px;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #last_submit {
+            max-width: 200px;
+            color: black;
+            background-color: white;
+            border: 0.1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            font-size: 18px;
+            padding: 10px;
+            margin-top: 80px;
+            position: relative;
+            right: 40%;
+        }
+        #message {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            #almost {
+                font-size: 20px;
+            }
+            #phone_label {
+                font-size: 16px;
+            }
+            #last_submit {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="./back.png" alt="back" id="back_button2">
+    <h1 id="almost">Almost there...</h1>
+    <p id="phone_label">Phone no <span style="color: #8fbf76;">*</span></p>
+    <form id="numberForm">
+        <input id="numberInput" type="tel" placeholder="Enter your phone number">
+        <button type="submit" id="last_submit">Get OTP</button>
+    </form>
+    
+    <script>
+      document.getElementById('numberForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const number = document.getElementById('numberInput').value;
+      
+        if (!/^\d{10}$/.test(number)) {
+          alert("Please enter a valid 10-digit number.");
+          return;
+        }
+      
+        try {
+          const response = await fetch('/store-number', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ number })
+          });
+      
+          if (response.ok) {
+            window.location.href = '/lol';
+          } else {
+            // Handle errors (e.g., invalid number format)
+            const result = await response.json();
+            alert(result.message || "An error occurred. Please try again.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("A network error occurred. Please try again.");
+        }
+      });
+      
+    </script>
+</body>
+</html>
